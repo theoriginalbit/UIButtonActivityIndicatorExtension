@@ -6,6 +6,9 @@ To enable the activity indicator it is as simple as the following
 
 ```swift
 let button = UIButton()
+
+button.activityIndicatorEnabled = true
 ```
 
-You may also access the `UIActivityIndicatorView` to customise it under the read-only `activityIndicator` property.  
+You may also access the `UIActivityIndicatorView` to customise it under the read-only `activityIndicatorView` property.
+
