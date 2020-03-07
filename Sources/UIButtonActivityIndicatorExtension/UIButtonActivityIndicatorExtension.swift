@@ -7,6 +7,7 @@ public extension UIButton {
         static var activityIndicatorColor = "activityIndicatorColor"
     }
 
+    /// The activity indicator view that is rendered in the vertical and horizontal center of the button.
     private(set) var activityIndicatorView: UIActivityIndicatorView? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.activityIndicatorView) as? UIActivityIndicatorView
@@ -16,6 +17,8 @@ public extension UIButton {
         }
     }
 
+    /// When set to `true` it will fade out the label, disable user interaction through `isUserInteractionEnabled`, and begin animating the activity indicator.
+    /// When changed back to `false` it will stop animating the activity indicator, fade the label back in, and re-enable user interaction.
     var activityIndicatorEnabled: Bool {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.activityIndicatorEnabled) as? Bool ?? false
@@ -27,6 +30,7 @@ public extension UIButton {
         }
     }
 
+    /// A color for the activity indicator, if this property is set to `nil` the result of `titleColor(for:)` will be used in its place.
     var activityIndicatorColor: UIColor? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.activityIndicatorColor) as? UIColor ?? titleColor(for: .normal)
