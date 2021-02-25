@@ -31,7 +31,7 @@ public extension UIButton {
     }
 
     /// A color for the activity indicator, if this property is set to `nil` the result of `titleColor(for:)` will be used in its place.
-    var activityIndicatorColor: UIColor? {
+    @objc dynamic var activityIndicatorColor: UIColor? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.activityIndicatorColor) as? UIColor ?? titleColor(for: .normal)
         }
