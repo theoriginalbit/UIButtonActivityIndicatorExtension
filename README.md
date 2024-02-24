@@ -1,3 +1,27 @@
+> [!TIP]
+> Did you know Apple introduced [`UIButton.Configuration`](https://developer.apple.com/documentation/uikit/uibutton/configuration) in iOS 15?
+>
+> Using the new Configuration API you can create a button like this library achieves. Simply set `showsActivityIndicator` to show the indicator. You can do this and more in the `configurationUpdateHandler`:
+> ```swift
+> let button = UIButton(configuration: .filled())
+> 
+> button.configurationUpdateHandler = { button in
+>     var currentConfig = button.configuration
+>     
+>     if isLoading {
+>         currentConfig?.baseBackgroundColor = .systemOrange
+>         currentConfig?.title = nil
+>     } else {
+>         currentConfig?.baseBackgroundColor = .systemGreen
+>         currentConfig?.title = "Click me!"
+>     }
+>     currentConfig?.buttonSize = .medium
+>     currentConfig?.showsActivityIndicator = isLoading
+>     
+>     button.configuration = currentConfig
+> }
+> ```
+
 # UIButton Extension – UIActivityIndicatorView 
 
 A very simple library that provides a `UIButton` extension that enables use of `UIActivityIndicatorView` that replaces the title when enabled.
